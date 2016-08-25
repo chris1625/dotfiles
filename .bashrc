@@ -16,6 +16,8 @@ export HISTIGNORE="ls:cd:cd -:cd ~:pwd:exit:date:* --help:h *"
 complete -cf sudo
 
 alias ls='ls --color=auto'
+alias ll='ls -alh'
+alias lt='ls -alth'
 alias grep='grep --color'
 alias diff='diff --color=auto'
 alias h='history'
