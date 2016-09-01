@@ -39,10 +39,9 @@ exec --no-startup-id xrandr --output HDMI-0 --auto --right-of DP-4 --rotate righ
 for_window [class="Nautilus|Gsimplecal|Pavucontrol|Lxappearance|GParted|Nitrogen"] floating enable
 exec --no-startup-id export LANG=en_US.UTF-8
 exec --no-startup-id numlockx on
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id udiskie --tray
-exec --no-startup-id xscreensaver -nosplash
 exec --no-startup-id nm-applet
+exec --no-startup-id variety
+exec --no-startup-id udiskie --tray
 exec --no-startup-id compton --config ~/.config/compton.conf
 #exec --no-startup-id compton --config ~/.config/compton.conf
 #exec --no-startup-id compton -cCGb --backend glx --vsync opengl
