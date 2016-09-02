@@ -21,7 +21,7 @@
     background_darkness = 0.8
     background_image = None
     background_type = transparent
-    font = Inconsolata for Powerline Medium 12
+    font = Inconsolata-dz for Powerline Medium 11
     foreground_color = "#ffffff"
     palette = "#3b3b3b:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#34dfd1:#d3d7cf:#808080:#ef2929:#8ae234:#fce94f:#3a96e7:#ad7fa8:#34e2e2:#eeeeec"
     scroll_on_output = False
