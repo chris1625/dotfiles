@@ -67,7 +67,7 @@ exec --no-startup-id xsetwacom --set "Wacom Intuos S 2 Pen stylus" MapToOutput H
 bindsym $mod+Return exec i3-sensible-terminal
 
 # Scratchpad terminal
-bindsym $mod+Shift+Return exec --no-startup-id terminator -l KJ -T "Life is beautiful." -p black_back
+bindsym $mod+Shift+Return exec --no-startup-id terminator -l KJ -T "Life is beautiful."
 for_window [instance="terminator" title="Life"] floating enable, move scratchpad, scratchpad show;
 for_window [instance="terminator" title="Life"] resize grow right 35, resize grow down 20
 
