@@ -31,16 +31,15 @@ font pango:Liberation Mono, Awesome 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-exec --no-startup-id xrandr --output DP-4 --primary
+exec --no-startup-id xrandr --output DP-4 --primary --pos 0x274
 exec --no-startup-id xrandr --output HDMI-0 --auto --right-of DP-4 --rotate right
 
 #exec --no-startup-id ~/.screens.sh
 
-for_window [class="Nautilus|Gsimplecal|Pavucontrol|Lxappearance|GParted|Nitrogen"] floating enable
+for_window [class="Nautilus|Gsimplecal|Pavucontrol|Lxappearance|GParted|Nitrogen|Variety"] floating enable
 exec --no-startup-id export LANG=en_US.UTF-8
 exec --no-startup-id numlockx on
 exec --no-startup-id nm-applet
-exec --no-startup-id variety
 exec --no-startup-id udiskie --tray
 exec --no-startup-id compton --config ~/.config/compton.conf
 #exec --no-startup-id compton --config ~/.config/compton.conf
@@ -72,6 +71,9 @@ bindsym $mod+Shift+Return exec --no-startup-id terminator -l KJ -T "Life is beau
 for_window [instance="terminator" title="Life"] floating enable, move scratchpad, scratchpad show;
 for_window [instance="terminator" title="Life"] resize grow right 35, resize grow down 20
 
+# Variety selector should be moved to middle of the screen
+for_window [class="Variety"] move position 0 px 900 px
+
 # open volume mixer
 bindsym $mod+Shift+v exec --no-startup-id pavucontrol
 
@@ -82,6 +84,12 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 bindsym $mod+Tab exec --no-startup-id rofi -m -1 -show run
 bindsym $mod+Shift+Tab exec --no-startup-id rofi -m -1 -show window
+
+# For screenshots
+# Full screenshot
+bindsym Print exec --no-startup-id maim --showcursor ~/Pictures/screenshots/$(date +%F-%T).png && ~/bin/gimp_screen.sh
+# Rectangle selection
+bindsym $mod+Print exec --no-startup-id "maim --color='1,0,0,1' --bordersize=2 -s ~/Pictures/screenshots/$(date +%F-%T).png"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
