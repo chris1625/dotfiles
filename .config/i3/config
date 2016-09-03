@@ -197,8 +197,8 @@ bindsym Control+Mod1+Right exec --no-startup-id playerctl next
 bindsym Control+Mod1+Left exec --no-startup-id playerctl previous
 
 # Sreen brightness controls
-bindsym F4 exec --no-startup-id light -A 10 # increase screen brightness
-bindsym F3 exec --no-startup-id light -U 10 # decrease screen brightness
+bindsym F4 exec --no-startup-id light -A 5 # increase screen brightness
+bindsym F3 exec --no-startup-id light -U 5 # decrease screen brightness
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
