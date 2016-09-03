@@ -33,6 +33,7 @@ floating_modifier $mod
 for_window [class="Nautilus|Gsimplecal|Pavucontrol|Lxappearance|GParted|Nitrogen"] floating enable
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie --tray
+exec --no-startup-id redshift-gtk
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id export LANG=en_US.UTF-8
 exec --no-startup-id numlockx on
