@@ -26,9 +26,6 @@ PS1="\n\[\e[1;30m\][\!\[\e[1;30m\]]\[\e[0;36m\] \T \[\e[1;30m\][\[\e[1;34m\]\u@\
 export VISUAL="vim"
 export EDITOR="vim"
 
-# Keychain to allow ease of use with ssh keys
-eval $(keychain --eval --quiet id_rsa)
-
 # Colors for less
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
