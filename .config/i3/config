@@ -78,6 +78,15 @@ for_window [class="Variety"] move position 0 px 900 px
 # open volume mixer
 bindsym $mod+Shift+v exec --no-startup-id pavucontrol
 
+# Open wallpaper selector
+bindsym $mod+Shift+w exec --no-startup-id wallpaper_selection.sh
+
+# Go to next queued wallpaper
+bindsym $mod+n exec --no-startup-id variety --next
+
+# Go to previous wallpaper
+bindsym $mod+Shift+n exec --no-startup-id variety --previous
+
 # kill focused window
 bindsym $mod+q kill
 
@@ -140,7 +149,7 @@ bindsym $mod+b split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+s layout stacking
+bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
