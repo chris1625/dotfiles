@@ -1,7 +1,7 @@
 set autoindent
 filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set cindent
 set colorcolumn=80
@@ -118,6 +118,19 @@ function! DeleteInactiveBufs()
     echomsg nWipeouts . ' buffer(s) wiped out'
 endfunction
 command! Bdi :call DeleteInactiveBufs()
+
+"Easy function header insert, use F4 in insert mode
+function FileHeading()
+  let s:line=line(".")
+  call setline(s:line,"/*********************************************")
+  call append(s:line,"* Description - ")
+  call append(s:line+1,"* Author - Chris Harris")
+  call append(s:line+2,"* Date - ".strftime("%b %d %Y"))
+  call append(s:line+3,"* *******************************************/")
+  unlet s:line
+endfunction
+
+imap <F4> <Esc>mz:execute FileHeading()<Return>`zjA
 
 "Easy call to Bdi
 nmap <Leader>bd :Bdi<CR>
