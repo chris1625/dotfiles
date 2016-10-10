@@ -1,7 +1,7 @@
 set autoindent
 filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set cindent
 set colorcolumn=80
@@ -118,6 +118,38 @@ function! DeleteInactiveBufs()
     echomsg nWipeouts . ' buffer(s) wiped out'
 endfunction
 command! Bdi :call DeleteInactiveBufs()
+
+"Easy file header insert, use F4 in insert mode
+function FileHeading()
+  let s:line=line(".")
+  call setline(s:line,"/*******************************************************************************")
+
+  call append(s:line,"* Name:          Christopher Harris & Jonathan Luck")
+  call append(s:line+1,"* UID:           C.H: A92052491; J.L: A13029781")
+  call append(s:line+2,"* Date:          " .strftime("%b %d %Y"))
+  call append(s:line+3,"* Filename:      " .expand("%"))
+  call append(s:line+4,"* Description    TODO")
+  call append(s:line+5,"* *****************************************************************************/")
+  unlet s:line
+endfunction
+
+"Easy function header insert, use F5 in insert mode
+function FunctionHeader()
+  let b=getline(".")
+  let s:line=line(".")-1
+  call setline(s:line+1,"/**")
+  call append(s:line+1," * Method Name: TODO")
+  call append(s:line+2," * Description: TODO")
+  call append(s:line+3," * Parameters:  TODO")
+  call append(s:line+4," * Return:      TODO")
+  call append(s:line+5," */")
+  call append(s:line+6,b)
+  unlet s:line
+  unlet b
+endfunction
+
+map <F4> <Esc>mz:execute FileHeading()<Return>`z4j
+map <F5> <Esc>mz:execute FunctionHeader()<Return>`z4j
 
 "Easy call to Bdi
 nmap <Leader>bd :Bdi<CR>
