@@ -32,7 +32,7 @@ export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS='-R '
 
 # Set grep color to green
-export GREP_COLOR="1;32"
+export GREP_COLOR="0;32"
 
 # Use solarized colors for ls and similar commands
 eval `dircolors ~/.dir_colors/dircolors.256dark`
