@@ -29,7 +29,11 @@ export EDITOR="vim"
 
 # Colors for less
 export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
+export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style molokai"
 export LESS='-R '
+
+# Colors for cat
+alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style molokai"
 
 # Set grep color to green
 export GREP_COLOR="0;32"
