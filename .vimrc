@@ -291,6 +291,9 @@ set wildignore+=*/tmp/*,*/bin/*,*.so,*.swp,*.zip,*.class,*.out,*.jar,*.o,*.pyc
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#eclim#enabled = 0
 
+" Use green for normal mode in solarized airline theme
+let g:airline_solarized_normal_green = 1
+
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#fnamemod = ':t'
