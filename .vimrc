@@ -33,8 +33,9 @@ if has ("gui_running")
     nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
 
 else
-    " If in CLI, use gruvbox
-    colorscheme gruvbox
+    " If in CLI, use solarized
+    colorscheme solarized
+    set t_Co=16
 endif
 
 "Create centralized backup location
@@ -225,12 +226,13 @@ nnoremap <Leader>ge :Gedit<CR>
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gw :Gwrite<CR><CR>
 nnoremap <Leader>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <Leader>glg :Git lg<CR>
 nnoremap <Leader>gp :Ggrep<Space>
 nnoremap <Leader>gm :Gmove<Space>
 nnoremap <Leader>gb :Git branch<Space>
 nnoremap <Leader>go :Git checkout<Space>
-nnoremap <Leader>gps :Dispatch! git push<CR>
-nnoremap <Leader>gpl :Dispatch! git pull<CR>
+nnoremap <Leader>gps :!git push<CR>
+nnoremap <Leader>gpl :!git pull<CR>
 
 "Set syntax to CPP using ,cp
 map <Leader>cp :set syntax=cpp<CR>
@@ -298,7 +300,7 @@ let g:airline_powerline_fonts = 1
 if has ("gui_running")
     let g:airline_theme='solarized'
 else
-    let g:airline_theme='gruvbox'
+    let g:airline_theme='solarized'
 endif
 
 if !exists('g:airline_symbols')
