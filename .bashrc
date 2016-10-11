@@ -22,7 +22,8 @@ alias grep='grep --color'
 alias diff='diff --color=auto'
 alias h='history'
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
-PS1="\n\[\e[1;30m\][\!\[\e[1;30m\]]\[\e[0;36m\] \T \[\e[1;30m\][\[\e[1;34m\]\u@\H\[\e[1;30m\]] \[\e[1;37m\]\w\[\e[0;37m\] \n\$ "
+PS1="\n\[\e[0;33m\][\!\[\e[0;33m\]]\[\e[0;36m\] \T \[\e[1;36m\][\[\e[1;34m\]\u@\H\[\e[1;36m\]] \[\e[1;37m\]\w\[\e[0;37m\] \n\$ "
+#PS1="\n\[\e[1;36m\][\!\[\e[1;36m\]]\[\e[0;36m\] \T \[\e[1;36m\][\[\e[0;34m\]\u@\H\[\e[1;36m\]] \[\e[1;37m\]\w\[\e[0;37m\] \n\$ "
 export VISUAL="vim"
 export EDITOR="vim"
 
@@ -32,3 +33,6 @@ export LESS='-R '
 
 # Set grep color to green
 export GREP_COLOR="1;32"
+
+# Use solarized colors for ls and similar commands
+eval `dircolors ~/.dir_colors/dircolors.256dark`
