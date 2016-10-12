@@ -1,0 +1,15 @@
+" leader key
+let mapleader = "\<Space>"
+
+" Faster scrolling
+noremap h 7h
+noremap j 7j
+noremap k 7k
+noremap l 7l
+
+" K and J to move between tabs
+noremap K :tabnext<CR>
+noremap J :tabNext<CR>
+
+" Blacklist
+ignorekeys add stepik.org
