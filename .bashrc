@@ -18,6 +18,7 @@ complete -cf sudo
 alias ls='ls --color=auto'
 alias ll='ls -alh'
 alias lt='ls -alth'
+alias mkdir='mkdir -pv'
 alias start_vnc='x11vnc -display :0 -localhost -scale 1920x1080 -clip xinerama0 -scale_cursor 1'
 alias grep='grep --color'
 alias diff='diff --color=auto'
