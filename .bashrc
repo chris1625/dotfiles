@@ -18,6 +18,7 @@ complete -cf sudo
 alias ls='ls --color=auto'
 alias ll='ls -alh'
 alias lt='ls -alth'
+alias mkdir='mkdir -pv'
 alias grep='grep --color'
 alias diff='diff --color=auto'
 alias h='history'
