@@ -238,7 +238,7 @@ nnoremap <Leader>gpl :!git pull<CR>
 map <Leader>cp :set syntax=cpp<CR>
 
 " Toggle through buffers
-nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bnext<CR>
 
 "Close preview window after leaving insert mode
 let g:ycm_autoclose_preview_window_after_insertion = 1
