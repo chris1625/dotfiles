@@ -30,7 +30,7 @@ font pango:Liberation Mono, Awesome 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-for_window [class="Nautilus|Gsimplecal|Pavucontrol|Lxappearance|GParted|Nitrogen"] floating enable
+for_window [class="Gsimplecal|Pavucontrol|Nitrogen"] floating enable
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie --tray
 exec --no-startup-id redshift-gtk
