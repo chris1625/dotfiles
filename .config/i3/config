@@ -390,6 +390,7 @@ gaps outer 3
 bar {
     status_command i3status
 	position top
+	tray_output primary
 }
 
 # Script to re-configure monitors after binary drivers have been loaded
