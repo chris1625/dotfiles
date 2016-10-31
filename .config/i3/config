@@ -39,6 +39,7 @@ exec --no-startup-id xrandr --output HDMI-0 --auto --right-of DP-4 --rotate righ
 for_window [class="Nautilus|Gsimplecal|Pavucontrol|Lxappearance|GParted|Nitrogen|Variety"] floating enable
 exec --no-startup-id export LANG=en_US.UTF-8
 exec --no-startup-id numlockx on
+for_window [class="Gsimplecal|Pavucontrol|Nitrogen"] floating enable
 exec --no-startup-id nm-applet
 exec --no-startup-id udiskie --tray
 exec --no-startup-id redshift-gtk
@@ -63,6 +64,8 @@ exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.8
 
 # Map wacom tablet to primary monitor
 exec --no-startup-id xsetwacom --set "Wacom Intuos S 2 Pen stylus" MapToOutput HEAD-0
+exec --no-startup-id export LANG=en_US.UTF-8
+exec --no-startup-id numlockx on
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -292,18 +295,29 @@ mode "resize" {
         bindsym Shift+k resize shrink height 4px or 4ppt
         bindsym Shift+l resize grow width 4px or 4ppt
 
+        # Move more at a time
+        bindsym Control+h resize shrink width 25 px or 25 ppt
+        bindsym Control+j resize grow height 25 px or 25 ppt
+        bindsym Control+k resize shrink height 25 px or 25 ppt
+        bindsym Control+l resize grow width 25 px or 25 ppt
+
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # Move less at a time (with arrow keys)
+        # Move less at a time
         bindsym Shift+Left resize shrink width 4px or 4ppt
         bindsym Shift+Down resize grow height 4px or 4ppt
         bindsym Shift+Up resize shrink height 4px or 4ppt
         bindsym Shift+Right resize grow width 4px or 4ppt
 
+        # Move more at a time
+        bindsym Control+Left resize shrink width 25 px or 25 ppt
+        bindsym Control+Down resize grow height 25 px or 25 ppt
+        bindsym Control+Up resize shrink height 25 px or 25 ppt
+        bindsym Control+Right resize grow width 25 px or 25 ppt
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -329,12 +343,51 @@ mode "$mode_system" {
 
 bindsym $mod+Pause mode "$mode_system"
 
+# Gap reconfiguration
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Set global values for gaps
+gaps inner 15
+gaps outer 3
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-	      position top
-	      tray_output primary
+    status_command i3status
+	position top
 }
-
-exec --no-startup-id ~/.nvidia.sh
