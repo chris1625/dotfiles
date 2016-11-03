@@ -82,7 +82,7 @@ set bs=2
 
 "Set textwidth and formatting options
 set textwidth=80
-autocmd BufNewFile,BufWinEnter * setlocal formatoptions=cqnroj
+"autocmd BufNewFile,BufWinEnter * setlocal formatoptions=cqnroj
 
 "Shortcuts to enable and disable formatting
 nnoremap <Leader>fo :set textwidth=80<CR> <Bar> :set colorcolumn=80 <CR>
