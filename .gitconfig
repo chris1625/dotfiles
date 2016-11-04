@@ -8,3 +8,5 @@
     lg = !"git lg1"
 [commit]
 	verbose = true
+[merge]
+	tool = meld
