@@ -10,6 +10,16 @@ hi Normal ctermbg=none
 syntax enable
 set hidden
 
+" Mapping to make escape easier to use
+ino jk <esc>
+ino kj <esc>
+
+cno jk <esc>
+cno kj <esc>
+
+" Temporary remapping to train me to not use escape
+inoremap <esc> <nop>
+
 " Spelling toggle via F9 and F10
 nmap <F9> :setlocal spell spelllang=en_us<CR>
 nmap <F10> :setlocal nospell<CR>
