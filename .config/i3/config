@@ -65,11 +65,18 @@ bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 bindsym $mod+Tab exec --no-startup-id rofi -m -1 -show run
 bindsym $mod+Shift+Tab exec --no-startup-id rofi -m -1 -show window
 
-# For screenshots
+# Screenshot bindings. All will result in screenshots saved in 
+# /home/chris/Pictures/screenshots. When not uploading to imgur, the location
+# of the new screenshot on disk will be added to clipboard. Otherwise, the
+# imgur link will be copied, and relevant data will be appended to
+# /home/chris/scr_links.txt.
 # Full screenshot
-bindsym Print exec --no-startup-id maim --showcursor ~/Pictures/screenshots/$(date +%F-%T).png && ~/bin/gimp_screen.sh
+bindsym Print exec --no-startup-id screenshots f n
 # Rectangle selection
-bindsym $mod+Print exec --no-startup-id "maim --color='1,0,0,1' --bordersize=2 -s ~/Pictures/screenshots/$(date +%F-%T).png"
+bindsym $mod+Print exec --no-startup-id screenshots p n
+# Same options, with imgur upload
+bindsym Shift+Print exec --no-startup-id screenshots f u
+bindsym $mod+Shift+Print exec --no-startup-id screenshots p u
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -151,17 +158,39 @@ set $tag9 "9: "
 
 
 # switch to workspace
+#bindsym $mod+1 workspace $tag1
+#bindsym $mod+2 workspace $tag2
+#bindsym $mod+3 workspace $tag3
+#bindsym $mod+4 workspace $tag4
+#bindsym $mod+5 workspace $tag5
+#bindsym $mod+6 workspace $tag6
+#bindsym $mod+7 workspace $tag7
+#bindsym $mod+8 workspace $tag8
+#bindsym $mod+9 workspace $tag9
+
 bindsym $mod+1 workspace $tag1
+bindcode $mod+87 workspace $tag1
 bindsym $mod+2 workspace $tag2
+bindcode $mod+88 workspace $tag2
 bindsym $mod+3 workspace $tag3
+bindcode $mod+89 workspace $tag3
 bindsym $mod+4 workspace $tag4
+bindcode $mod+83 workspace $tag4
 bindsym $mod+5 workspace $tag5
+bindcode $mod+84 workspace $tag5
 bindsym $mod+6 workspace $tag6
+bindcode $mod+85 workspace $tag6
 bindsym $mod+7 workspace $tag7
+bindcode $mod+79 workspace $tag7
 bindsym $mod+8 workspace $tag8
+bindcode $mod+80 workspace $tag8
 bindsym $mod+9 workspace $tag9
+bindcode $mod+81 workspace $tag9
 
 bindsym $mod+z workspace back_and_forth
+bindsym $mod+KP_Enter workspace back_and_forth
+bindsym $mod+Shift+z move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Shift+KP_Enter move container to workspace back_and_forth; workspace back_and_forth
 bindsym Control+$mod+Left workspace prev
 bindsym Control+$mod+Right workspace next
 bindsym Control+$mod+l workspace next
@@ -175,14 +204,23 @@ bindsym $mod+minus scratchpad show
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1; workspace $tag1
+bindcode $mod+Shift+87 move container to workspace $tag1; workspace $tag1
 bindsym $mod+Shift+2 move container to workspace $tag2; workspace $tag2
+bindcode $mod+Shift+88 move container to workspace $tag2; workspace $tag2
 bindsym $mod+Shift+3 move container to workspace $tag3; workspace $tag3
+bindcode $mod+Shift+89 move container to workspace $tag3; workspace $tag3
 bindsym $mod+Shift+4 move container to workspace $tag4; workspace $tag4
+bindcode $mod+Shift+83 move container to workspace $tag4; workspace $tag4
 bindsym $mod+Shift+5 move container to workspace $tag5; workspace $tag5
+bindcode $mod+Shift+84 move container to workspace $tag5; workspace $tag5
 bindsym $mod+Shift+6 move container to workspace $tag6; workspace $tag6
+bindcode $mod+Shift+85 move container to workspace $tag6; workspace $tag6
 bindsym $mod+Shift+7 move container to workspace $tag7; workspace $tag7
+bindcode $mod+Shift+79 move container to workspace $tag7; workspace $tag7
 bindsym $mod+Shift+8 move container to workspace $tag8; workspace $tag8
+bindcode $mod+Shift+80 move container to workspace $tag8; workspace $tag8
 bindsym $mod+Shift+9 move container to workspace $tag9; workspace $tag9
+bindcode $mod+Shift+81 move container to workspace $tag9; workspace $tag9
 
 new_window pixel 3
 
