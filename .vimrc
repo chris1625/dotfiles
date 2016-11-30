@@ -18,7 +18,7 @@ cno jk <esc>
 cno kj <esc>
 
 " Temporary remapping to train me to not use escape
-inoremap <esc> <nop>
+"inoremap <esc> <nop>
 
 " Spelling toggle via F9 and F10
 nmap <F9> :setlocal spell spelllang=en_us<CR>
