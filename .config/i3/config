@@ -55,15 +55,16 @@ exec --no-startup-id nvidia-settings --assign CurrentMetaMode="$(xrandr | sed -n
 
 # The stupid thing always changes so this is how I set cursor speed for the
 # deathAdder chroma
-exec --no-startup-id xinput --set-prop 17 'libinput Accel Speed' -0.8
-exec --no-startup-id xinput --set-prop 16 'libinput Accel Speed' -0.8
-exec --no-startup-id xinput --set-prop 15 'libinput Accel Speed' -0.8
-exec --no-startup-id xinput --set-prop 14 'libinput Accel Speed' -0.8
-exec --no-startup-id xinput --set-prop 13 'libinput Accel Speed' -0.8
-exec --no-startup-id xinput --set-prop 12 'libinput Accel Speed' -0.8
-exec --no-startup-id xinput --set-prop 11 'libinput Accel Speed' -0.8
-exec --no-startup-id xinput --set-prop 10 'libinput Accel Speed' -0.8
-exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.8
+#exec --no-startup-id xinput --set-prop 17 'libinput Accel Speed' -0.8
+#exec --no-startup-id xinput --set-prop 16 'libinput Accel Speed' -0.8
+#exec --no-startup-id xinput --set-prop 15 'libinput Accel Speed' -0.8
+#exec --no-startup-id xinput --set-prop 14 'libinput Accel Speed' -0.8
+#exec --no-startup-id xinput --set-prop 13 'libinput Accel Speed' -0.8
+#exec --no-startup-id xinput --set-prop 12 'libinput Accel Speed' -0.8
+#exec --no-startup-id xinput --set-prop 11 'libinput Accel Speed' -0.8
+#exec --no-startup-id xinput --set-prop 10 'libinput Accel Speed' -0.8
+#exec --no-startup-id xinput --set-prop 9 'libinput Accel Speed' -0.8
+exec --no-startup-id /home/chris/bin/mouse.sh
 
 # Map wacom tablet to primary monitor
 exec --no-startup-id xsetwacom --set "Wacom Intuos S 2 Pen stylus" MapToOutput HEAD-0
@@ -262,9 +263,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%- unmute
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
 # Media keys
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+#bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+#bindsym XF86AudioNext exec --no-startup-id playerctl next && mpc next
+bindsym XF86AudioNext exec --no-startup-id mpc next
+#bindsym XF86AudioPrev exec --no-startup-id playerctl previous && mpc previous
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
