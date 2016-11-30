@@ -1,0 +1,36 @@
+#!/bin/bash
+
+FILENAME="/home/chris/Pictures/screenshots/$(date +%F-%T).png"
+SCR_LINKS="/home/chris/scr_links.txt"
+
+printf '\n'
+
+if [ $# != 2 ]; then
+    echo "Usage: $0 [(p)artial/(f)ull] [(u)pload/(n)oupload]"
+    exit -1
+fi
+
+if [ $1 = 'p' ] || [ $1 = 'partial' ]; then
+    echo Saving to $FILENAME
+    maim --color='1,0,0,1' --bordersize=2 -s $FILENAME
+    echo $FILENAME | xsel --input --clipboard
+    notify-send "Screenshot saved to $FILENAME, location copied to clipboard"
+
+elif [ $1 = 'f' ] || [ $1 = 'full' ]; then
+    echo Saving to $FILENAME
+    maim --showcursor $FILENAME
+    echo $FILENAME | xsel --input --clipboard
+    notify-send "Screenshot saved to $FILENAME, location copied to clipboard"
+
+else
+    echo Incorrect first argument. Exiting...
+    exit -1
+fi
+
+if [ $2 = 'u' ] || [ $2 = 'upload' ]; then
+    printf '\n' >> $SCR_LINKS
+    echo $FILENAME >> $SCR_LINKS
+    imgur $FILENAME 2>&1 | tee -a $SCR_LINKS
+    notify-send "Screenshot uploaded to imgur, link copied to clipboard. See
+    $SCR_LINKS for details"
+fi
